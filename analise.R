@@ -36,7 +36,14 @@ gapminder |>
        x = '',
        y = 'Expectativa de Vida')
 
-
+gapminder |> 
+  filter(year == 2007) |> 
+  arrange(desc(gdpPercap)) |> 
+  head(10) |> 
+  ggplot(aes(x = reorder(country, gdpPercap), y = gdpPercap)) +
+  geom_col() +
+  theme_light() +
+  coord_flip()
 
 # ============================================================
 # ANTES DO COMMIT 2 — Conectar com o GitHub
