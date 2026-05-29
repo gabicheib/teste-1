@@ -22,8 +22,20 @@
 # Bibliotecas (já no primeiro commit, junto com este arquivo
 # e o .gitignore)
 
-library(tidyverse)
 library(gapminder)
+library(tidyverse)
+gapminder |> 
+  filter(country == 'Brazil') |> 
+  ggplot(aes(x = year, y = lifeExp)) +
+  theme_light() +
+  geom_point() +
+  geom_line() +
+  labs(title = 'Evolução da Expectativa de Vida no Brasil',
+       subtitle = '1952 - 2007',
+       caption = 'Gapminder Dataset - The World Bank',
+       x = '',
+       y = 'Expectativa de Vida')
+
 
 
 # ============================================================
